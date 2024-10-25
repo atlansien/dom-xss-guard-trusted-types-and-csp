@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XSS DOM Guard Demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>XSS DOM Guard Demo</h1>
+
+      <div>
+        <h2>createPolicyを利用</h2>
+        <input
+          type="text"
+          id="useInput"
+          placeholder="Enter some text (try including HTML tags)"
+        />
+        <button id="submitUseBtn">Submit</button>
+      </div>
+      <div>
+        <h3>Output:</h3>
+        <div id="useOutput"></div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
