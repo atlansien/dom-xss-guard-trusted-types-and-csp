@@ -30,7 +30,7 @@ if (window.trustedTypes && trustedTypes.createPolicy) {
   });
 }
 
-// DOMイベントの設定
+// Trusted Types API 使用ぎ
 const useInput = document.getElementById('useInput');
 const submitBtn = document.getElementById('submitUseBtn');
 const output = document.getElementById('useOutput');
@@ -50,5 +50,27 @@ document.getElementById('submitUseBtn').addEventListener('click', () => {
   } catch (error) {
     console.error('Error processing input:', error);
     output.textContent = 'Error processing input';
+  }
+});
+
+
+// Trusted Types API 未使用
+const unUseInput = document.getElementById('unUseInput');
+const submitUnUseBtn = document.getElementById('submitUnUseBtn');
+const unUseOutput = document.getElementById('unUseOutput');
+
+document.getElementById('submitUnUseBtn').addEventListener('click', () => {
+  const inputValue = unUseInput.value;
+
+  try {
+
+    // // TrustedHTMLに変換せずに直接反映
+    unUseOutput.innerHTML = inputValue;
+
+    // 入力フィールドをクリア
+    unUseInput.value = '';
+  } catch (error) {
+    console.error('意図しない形式で反映された値です', error);
+    unUseOutput.textContent = 'Error:意図しない形式で反映された値です';
   }
 });
